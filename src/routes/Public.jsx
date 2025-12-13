@@ -3,6 +3,8 @@ import Root from "../Root";
 import Home from "../components/Home";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import Private from "./Private";
+import Orders from "../components/Orders";
 
 const Public = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const Public = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/orders",
+        element: (
+          <Private>
+            <Orders></Orders>
+          </Private>
+        ),
       },
     ],
   },
