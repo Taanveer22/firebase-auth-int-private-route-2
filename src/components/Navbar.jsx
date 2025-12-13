@@ -3,7 +3,6 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
-
   const { user, signOutUser } = useContext(AuthContext);
 
   const handleSignOut = () => {
@@ -27,12 +26,19 @@ const Navbar = () => {
       <li>
         <NavLink to="/register">Register</NavLink>
       </li>
-      <li>
-        <NavLink to="/orders">Orders</NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to="/orders">Orders</NavLink>
+          </li>
+          <li>
+            <NavLink to="/profile">Profile</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
-  
+
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
