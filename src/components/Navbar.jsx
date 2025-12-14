@@ -75,7 +75,7 @@ const Navbar = () => {
         <div className="navbar-end">
           {user ? (
             <>
-              <span>{user.email}</span>
+              <span>{user?.displayName || user?.email}</span>
               <button
                 onClick={handleSignOut}
                 className="btn btn-sm btn-warning ml-3"
